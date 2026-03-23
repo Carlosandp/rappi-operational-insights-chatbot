@@ -1,0 +1,11 @@
+streamlit>=1.32.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.18.0
+openpyxl>=3.1.0
+python-dotenv>=1.0.0
+# LLM — choose one or both (both work, app switches dynamically)
+google-genai>=1.0.0            # New Google Gemini SDK (recommended)
+google-generativeai>=0.5.0     # Legacy fallback (optional)
+groq>=0.5.0                    # Groq + Llama 3.3 70B fallback
+requests>=2.31.0

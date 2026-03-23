@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte Ejecutivo — Rappi Ops Analytics</title>
+  
+<style>
+  body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: #f8f9fa; color: #1a1a2e; }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+  .header { background: linear-gradient(135deg, #FF441F 0%, #ff6b4a 100%);
+             color: white; padding: 40px; border-radius: 16px; margin-bottom: 32px; }
+  .header h1 { margin: 0; font-size: 2rem; }
+  .header p { margin: 8px 0 0; opacity: 0.9; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                   gap: 16px; margin-bottom: 32px; }
+  .stat-card { background: white; border-radius: 12px; padding: 20px; text-align: center;
+                box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .stat-card .number { font-size: 2rem; font-weight: 700; color: #FF441F; }
+  .stat-card .label { font-size: 0.85rem; color: #666; margin-top: 4px; }
+  .section { margin-bottom: 32px; }
+  .section h2 { font-size: 1.3rem; border-bottom: 3px solid #FF441F; padding-bottom: 8px;
+                 margin-bottom: 20px; }
+  .insight-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px;
+                   box-shadow: 0 2px 8px rgba(0,0,0,.06); border-left: 4px solid #FF441F; }
+  .insight-card.alta { border-left-color: #e74c3c; }
+  .insight-card.media { border-left-color: #FF441F; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 600; background: #fff3f0; color: #FF441F; margin-bottom: 8px; }
+  .badge.alta { background: #ffeaea; color: #c0392b; }
+  .insight-title { font-size: 1rem; font-weight: 700; margin: 0 0 10px; }
+  .insight-field { margin-bottom: 6px; font-size: 0.9rem; }
+  .insight-field strong { color: #333; }
+  .footer { text-align: center; font-size: 0.8rem; color: #999; margin-top: 48px; }
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Reporte Ejecutivo — Operaciones Rappi</h1>
+      <p>Sistema de Análisis Inteligente | Generado: 2026-03-23 03:27</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="stat-card">
+        <div class="number">980</div>
+        <div class="label">Zonas analizadas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">9</div>
+        <div class="label">Países</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">13</div>
+        <div class="label">Métricas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">20</div>
+        <div class="label">Anomalías</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">10</div>
+        <div class="label">Tendencias preoc.</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">8</div>
+        <div class="label">Oportunidades</div>
+      </div>
+    </div>
+
+    
+  <div class="section">
+    <h2>🏆 Top 5 Hallazgos Críticos</h2>
+    
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">1. Deterioro sostenido de Perfect Orders — Manta Beach (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Perfect Orders ha caído 8 semanas consecutivas en Manta Beach (EC). Cambio acumulado: -9.8%. Valor actual: 0.776.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en Manta Beach: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">2. Deterioro brusca en Restaurants Markdowns / GMV — Raito de luz (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Restaurants Markdowns / GMV cambió +212.0% WoW (0.030 → 0.095) en Raito de luz.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en Raito de luz: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">3. Subperformance en Perfect Orders — CDG La Hacienda (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> CDG La Hacienda: Perfect Orders = 0.242 vs. promedio de pares (Non Wealthy, MX) = 0.867. Z-score: -6.78.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en CDG La Hacienda y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">4. Oportunidad de mejora en calidad — Colina (CL)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CL/Non Wealthy) — Lead Pen: 34.2%, Perfect Orders: 81.8% (umbral peers: 82.5%). Crecimiento órdenes (4w): +35.3% sobre base de 119 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Colina: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">5. Correlación positiva entre MLTV Top Verticals Adoption y Turbo Adoption</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.79 (79% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto MLTV Top Verticals Adoption tienden a tener también alto Turbo Adoption</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>🚨 Anomalías Detectadas</h2>
+    
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">1. Deterioro brusca en Restaurants Markdowns / GMV — Raito de luz (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Restaurants Markdowns / GMV cambió +212.0% WoW (0.030 → 0.095) en Raito de luz.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en Raito de luz: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">2. Deterioro brusca en Pro Adoption (Last Week Status) — Cinco Conjuntos (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Pro Adoption (Last Week Status) cambió -100.0% WoW (0.333 → 0.000) en Cinco Conjuntos.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en Cinco Conjuntos: revisar comunicación y beneficios del programa Pro.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">3. Deterioro brusca en Retail SST > SS CVR — SC - FLN - Ilha Norte (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Retail SST > SS CVR cambió -100.0% WoW (0.020 → 0.000) en SC - FLN - Ilha Norte.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en SC - FLN - Ilha Norte: revisar disponibilidad y presentación de supermercados.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">4. Deterioro brusca en Pro Adoption (Last Week Status) — Campina Grande MP (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Pro Adoption (Last Week Status) cambió -100.0% WoW (0.250 → 0.000) en Campina Grande MP.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en Campina Grande MP: revisar comunicación y beneficios del programa Pro.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">5. Deterioro brusca en Non-Pro PTC > OP — TEZ_Centro (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Non-Pro PTC > OP cambió -100.0% WoW (0.100 → 0.000) en TEZ_Centro.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en TEZ_Centro: revisar el funnel de checkout y posibles fricciones de pago.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">6. Deterioro brusca en Non-Pro PTC > OP — SC - FLN - Ilha Sul (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Non-Pro PTC > OP cambió -100.0% WoW (0.083 → 0.000) en SC - FLN - Ilha Sul.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en SC - FLN - Ilha Sul: revisar el funnel de checkout y posibles fricciones de pago.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">7. Deterioro brusca en % PRO Users Who Breakeven — TLX San Diego Metepec (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> % PRO Users Who Breakeven cambió -100.0% WoW (0.067 → 0.000) en TLX San Diego Metepec.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en TLX San Diego Metepec: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🚨 Anomalía</p>
+    <h3 class="insight-title">8. Deterioro brusca en Pro Adoption (Last Week Status) — ZAZUE ESTE (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Pro Adoption (Last Week Status) cambió -100.0% WoW (0.333 → 0.000) en ZAZUE ESTE.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un cambio abrupto puede indicar un problema operacional puntual o una mejora inesperada que merece seguimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar causa del deterioro en ZAZUE ESTE: revisar comunicación y beneficios del programa Pro.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>📉 Tendencias Preocupantes</h2>
+    
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">1. Deterioro sostenido de Perfect Orders — Manta Beach (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Perfect Orders ha caído 8 semanas consecutivas en Manta Beach (EC). Cambio acumulado: -9.8%. Valor actual: 0.776.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en Manta Beach: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">2. Deterioro sostenido de MLTV Top Verticals Adoption — Centro Historico Arequipa (PE)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> MLTV Top Verticals Adoption ha caído 8 semanas consecutivas en Centro Historico Arequipa (PE). Cambio acumulado: -15.7%. Valor actual: 0.122.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en Centro Historico Arequipa: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">3. Deterioro sostenido de MLTV Top Verticals Adoption — MG - BH - Contagem (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> MLTV Top Verticals Adoption ha caído 8 semanas consecutivas en MG - BH - Contagem (BR). Cambio acumulado: -100.0%. Valor actual: 0.000.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en MG - BH - Contagem: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">4. Deterioro sostenido de MLTV Top Verticals Adoption — Contry (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> MLTV Top Verticals Adoption ha caído 8 semanas consecutivas en Contry (MX). Cambio acumulado: -7.1%. Valor actual: 0.289.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en Contry: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">5. Deterioro sostenido de % Restaurants Sessions With Optimal Assortment — SP - SP - Socorro/Cidade Dutra (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> % Restaurants Sessions With Optimal Assortment ha caído 8 semanas consecutivas en SP - SP - Socorro/Cidade Dutra (BR). Cambio acumulado: -19.8%. Valor actual: 0.417.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en SP - SP - Socorro/Cidade Dutra: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">6. Deterioro sostenido de Lead Penetration — SP - SP - Itaim Bibi (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration ha caído 8 semanas consecutivas en SP - SP - Itaim Bibi (BR). Cambio acumulado: -11.1%. Valor actual: 0.155.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en SP - SP - Itaim Bibi: revisar habilitación de tiendas y densidad de oferta en la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">7. Deterioro sostenido de % Restaurants Sessions With Optimal Assortment — SP - SP - Limao/Casa Verde (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> % Restaurants Sessions With Optimal Assortment ha caído 8 semanas consecutivas en SP - SP - Limao/Casa Verde (BR). Cambio acumulado: -3.5%. Valor actual: 0.864.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en SP - SP - Limao/Casa Verde: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📉 Tendencia Preocupante</p>
+    <h3 class="insight-title">8. Deterioro sostenido de Lead Penetration — DF - BSB - Lago Norte (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration ha caído 8 semanas consecutivas en DF - BSB - Lago Norte (BR). Cambio acumulado: -23.2%. Valor actual: 0.231.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Un deterioro de 8+ semanas sugiere un problema estructural, no un evento puntual. Puede afectar retención y GMV.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Priorizar revisión en DF - BSB - Lago Norte: revisar habilitación de tiendas y densidad de oferta en la zona.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>📊 Benchmarking de Zonas</h2>
+    
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">1. Subperformance en Perfect Orders — CDG La Hacienda (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> CDG La Hacienda: Perfect Orders = 0.242 vs. promedio de pares (Non Wealthy, MX) = 0.867. Z-score: -6.78.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en CDG La Hacienda y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">2. Subperformance en Perfect Orders — CDG Centro (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> CDG Centro: Perfect Orders = 0.278 vs. promedio de pares (Non Wealthy, MX) = 0.867. Z-score: -6.39.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en CDG Centro y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">3. Subperformance en Perfect Orders — ACU Centro (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> ACU Centro: Perfect Orders = 0.320 vs. promedio de pares (Non Wealthy, MX) = 0.867. Z-score: -5.93.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en ACU Centro y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">4. Subperformance en Perfect Orders — GO - GYN - Jd. Novo Mundo (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> GO - GYN - Jd. Novo Mundo: Perfect Orders = 0.328 vs. promedio de pares (Wealthy, BR) = 0.849. Z-score: -4.92.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en GO - GYN - Jd. Novo Mundo y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">5. Subperformance en Perfect Orders — Usme (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Usme: Perfect Orders = 0.694 vs. promedio de pares (Non Wealthy, CO) = 0.879. Z-score: -4.19.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Investigar qué falla en Usme y replicar al resto del grupo: revisar tasa de defectos, cancelaciones y SLA de entrega.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">6. Sobreperformance en Lead Penetration — SP - VCP - Jardim Santa Lúcia (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> SP - VCP - Jardim Santa Lúcia: Lead Penetration = 1.100 vs. promedio de pares (Non Wealthy, BR) = 0.100. Z-score: +6.91.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Identificar best practices de SP - VCP - Jardim Santa Lúcia y replicar al resto del grupo: revisar habilitación de tiendas y densidad de oferta en la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">7. Sobreperformance en Lead Penetration — TLX CHIAUTEMPAN (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> TLX CHIAUTEMPAN: Lead Penetration = 0.933 vs. promedio de pares (Non Wealthy, MX) = 0.156. Z-score: +6.23.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Identificar best practices de TLX CHIAUTEMPAN y replicar al resto del grupo: revisar habilitación de tiendas y densidad de oferta en la zona.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">📊 Benchmarking</p>
+    <h3 class="insight-title">8. Sobreperformance en Lead Penetration — GUA_SUR (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> GUA_SUR: Lead Penetration = 0.922 vs. promedio de pares (Non Wealthy, MX) = 0.156. Z-score: +6.14.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> La divergencia respecto a pares puede revelar prácticas o condiciones específicas.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Identificar best practices de GUA_SUR y replicar al resto del grupo: revisar habilitación de tiendas y densidad de oferta en la zona.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>🔗 Correlaciones entre Métricas</h2>
+    
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">1. Correlación positiva entre MLTV Top Verticals Adoption y Turbo Adoption</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.79 (79% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto MLTV Top Verticals Adoption tienden a tener también alto Turbo Adoption</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">2. Correlación positiva entre Non-Pro PTC > OP y Restaurants SS > ATC CVR</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.69 (69% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto Non-Pro PTC > OP tienden a tener también alto Restaurants SS > ATC CVR</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">3. Correlación positiva entre MLTV Top Verticals Adoption y Pro Adoption (Last Week Status)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.68 (68% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto MLTV Top Verticals Adoption tienden a tener también alto Pro Adoption (Last Week Status)</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">4. Correlación positiva entre % Restaurants Sessions With Optimal Assortment y Restaurants SS > ATC CVR</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.67 (67% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto % Restaurants Sessions With Optimal Assortment tienden a tener también alto Restaurants SS > ATC CVR</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🔗 Correlación</p>
+    <h3 class="insight-title">5. Correlación positiva entre % PRO Users Who Breakeven y Restaurants SS > ATC CVR</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Correlación Pearson = 0.65 (65% de fuerza asociativa).</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Zonas con alto % PRO Users Who Breakeven tienden a tener también alto Restaurants SS > ATC CVR</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Usar esta relación para priorizar intervenciones: mejorar la métrica palanca puede impactar ambas simultáneamente.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>🌟 Oportunidades Identificadas</h2>
+    
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">1. Oportunidad de mejora en calidad — Colina (CL)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CL/Non Wealthy) — Lead Pen: 34.2%, Perfect Orders: 81.8% (umbral peers: 82.5%). Crecimiento órdenes (4w): +35.3% sobre base de 119 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Colina: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">2. Oportunidad de mejora en calidad — TCE Santa Anita (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (MX/Non Wealthy) — Lead Pen: 66.7%, Perfect Orders: 71.7% (umbral peers: 88.3%). Crecimiento órdenes (4w): +21.6% sobre base de 51 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en TCE Santa Anita: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">3. Oportunidad de mejora en calidad — VALL Centro (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (MX/Non Wealthy) — Lead Pen: 49.5%, Perfect Orders: 68.5% (umbral peers: 88.3%). Crecimiento órdenes (4w): +14.0% sobre base de 86 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en VALL Centro: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">4. Oportunidad de mejora en calidad — Curauma (CL)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CL/Non Wealthy) — Lead Pen: 31.8%, Perfect Orders: 81.8% (umbral peers: 82.5%). Crecimiento órdenes (4w): +12.6% sobre base de 198 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Curauma: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">5. Oportunidad de mejora en calidad — ZAC Tres Cruces (MX)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (MX/Non Wealthy) — Lead Pen: 80.8%, Perfect Orders: 86.7% (umbral peers: 88.3%). Crecimiento órdenes (4w): +12.4% sobre base de 477 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en ZAC Tres Cruces: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">6. Oportunidad de mejora en calidad — Envigado (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CO/Non Wealthy) — Lead Pen: 43.0%, Perfect Orders: 85.5% (umbral peers: 87.7%). Crecimiento órdenes (4w): +12.3% sobre base de 43,804 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Envigado: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">7. Oportunidad de mejora en calidad — Troncal (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CO/Non Wealthy) — Lead Pen: 31.7%, Perfect Orders: 87.3% (umbral peers: 87.7%). Crecimiento órdenes (4w): +10.7% sobre base de 6,087 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Troncal: revisar operaciones y datos de la zona.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">🌟 Oportunidad</p>
+    <h3 class="insight-title">8. Oportunidad de mejora en calidad — Poblado_guayabal (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Alta oferta vs. pares (CO/Wealthy) — Lead Pen: 47.3%, Perfect Orders: 87.4% (umbral peers: 89.6%). Crecimiento órdenes (4w): +10.3% sobre base de 106,785 órdenes.</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Esta zona tiene buena oferta y demanda creciente, pero calidad por debajo de sus pares. Mejorar Perfect Orders aquí puede amplificar el crecimiento.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Activar plan de calidad en Poblado_guayabal: revisar operaciones y datos de la zona.</div>
+  </div>
+  </div>
+  <div class="section">
+    <h2>⚠️ Alertas de Calidad de Datos</h2>
+    
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">1. Valor fuera de rango: Lead Penetration = 2.000 en MG - BHZ - Sul (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 2.000 en MG - BHZ - Sul. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para MG - BHZ - Sul — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">2. Valor fuera de rango: Lead Penetration = 35.900 en Orquideas (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 35.900 en Orquideas. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Orquideas — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">3. Valor fuera de rango: Lead Penetration = 13.600 en Chaullabamba (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 13.600 en Chaullabamba. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Chaullabamba — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">4. Valor fuera de rango: Lead Penetration = 3.000 en Varzea Paulista (BR)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 3.000 en Varzea Paulista. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Varzea Paulista — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">5. Valor fuera de rango: Lead Penetration = 141.300 en Antiguo Aeropuerto (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 141.300 en Antiguo Aeropuerto. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Antiguo Aeropuerto — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">6. Valor fuera de rango: Lead Penetration = 21.600 en Centro Lima Red (PE)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 21.600 en Centro Lima Red. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Centro Lima Red — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card alta">
+    <span class="badge alta">🔴 Alta</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">7. Valor fuera de rango: Lead Penetration = 34.800 en SAMARIA_2_PEI (CO)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 34.800 en SAMARIA_2_PEI. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para SAMARIA_2_PEI — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  <div class="insight-card media">
+    <span class="badge media">🟠 Media</span>
+    <p class="badge">⚠️ Calidad de Datos</p>
+    <h3 class="insight-title">8. Valor fuera de rango: Lead Penetration = 2.500 en Eden del Valle (EC)</h3>
+    <div class="insight-field"><strong>📋 Evidencia:</strong> Lead Penetration reporta 2.500 en Eden del Valle. Rango esperado: [0, 2.0].</div>
+    <div class="insight-field"><strong>❓ Por qué importa:</strong> Valores fuera de rango pueden distorsionar benchmarks, correlaciones y rankings.</div>
+    <div class="insight-field"><strong>✅ Recomendación:</strong> Validar fuente de datos para Eden del Valle — Lead Penetration. Excluir de análisis comparativos hasta confirmar.</div>
+  </div>
+  </div>
+
+    <div class="section">
+      <h2>✅ Recomendaciones Finales</h2>
+      <div class="insight-card">
+        <ol>
+          <li><strong>Priorizar zonas de alta severidad</strong> con deterioro consistente en métricas de calidad (Perfect Orders).</li>
+          <li><strong>Capitalizar las oportunidades identificadas</strong> donde la oferta está lista pero la ejecución es subóptima.</li>
+          <li><strong>Investigar correlaciones</strong> para diseñar intervenciones que impacten múltiples métricas simultáneamente.</li>
+          <li><strong>Monitorear semanalmente</strong> las anomalías detectadas para validar si son eventos puntuales o tendencias.</li>
+          <li><strong>Replicar best practices</strong> de zonas que superan a sus pares en métricas clave.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="footer">
+      Reporte generado automáticamente por el Sistema de Análisis Inteligente Rappi — 2026-03-23 03:27
+    </div>
+  </div>
+</body>
+</html>

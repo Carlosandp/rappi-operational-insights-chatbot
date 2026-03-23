@@ -1,0 +1,158 @@
+{
+  "metrics": {
+    "Lead Penetration": {
+      "description": "Tiendas habilitadas en Rappi / (Tiendas leads + habilitadas + salidas). Valores >1 posibles por codificación del dataset.",
+      "higher_is_better": true,
+      "aliases": ["lead penetration", "lead pen", "penetración de leads", "penetracion"],
+      "category": "supply",
+      "unit": "decimal",
+      "expected_range": [0, 2.0],
+      "anomaly_abs_min": 0.02,
+      "note": "Outliers >2 son conteos de tiendas, no ratios — se marcan como data_quality"
+    },
+    "Perfect Orders": {
+      "description": "Orders sin cancelaciones, defectos o demora / Total de órdenes",
+      "higher_is_better": true,
+      "aliases": ["perfect orders", "perfect order", "ordenes perfectas", "órdenes perfectas"],
+      "category": "quality",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "Gross Profit UE": {
+      "description": "Margen bruto de ganancia / Total de órdenes. Puede ser negativo si costos superan ingresos.",
+      "higher_is_better": true,
+      "aliases": ["gross profit", "gross profit ue", "gp ue", "margen bruto", "utilidad"],
+      "category": "financial",
+      "unit": "currency",
+      "expected_range": [-100, 15],
+      "anomaly_abs_min": 1.0,
+      "note": "P5=-97, P95=+8. Valores < -15 son posibles y válidos en zonas con subsidios altos."
+    },
+    "Pro Adoption (Last Week Status)": {
+      "description": "Usuarios suscripción Pro / Total usuarios de Rappi",
+      "higher_is_better": true,
+      "aliases": ["pro adoption", "adopción pro", "adopcion pro"],
+      "category": "subscription",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.01
+    },
+    "% PRO Users Who Breakeven": {
+      "description": "Usuarios Pro cuyo valor generado ha cubierto el costo de la membresía",
+      "higher_is_better": true,
+      "aliases": ["pro breakeven", "breakeven", "pro who breakeven"],
+      "category": "subscription",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.01
+    },
+    "MLTV Top Verticals Adoption": {
+      "description": "Usuarios con órdenes en diferentes verticales / Total usuarios",
+      "higher_is_better": true,
+      "aliases": ["mltv", "vertical adoption", "adopción verticales", "multi vertical"],
+      "category": "engagement",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.01
+    },
+    "Restaurants SS > ATC CVR": {
+      "description": "Conversión de Select Store a Add to Cart en restaurantes",
+      "higher_is_better": true,
+      "aliases": ["restaurants atc cvr", "ss atc", "atc cvr", "conversión atc"],
+      "category": "conversion",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "Restaurants SST > SS CVR": {
+      "description": "% usuarios que, después de ver lista de restaurantes, seleccionan una tienda",
+      "higher_is_better": true,
+      "aliases": ["restaurants sst ss", "sst ss cvr restaurants", "conversión restaurantes"],
+      "category": "conversion",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "Retail SST > SS CVR": {
+      "description": "% usuarios que, después de ver Supermercados, seleccionan una tienda",
+      "higher_is_better": true,
+      "aliases": ["retail sst ss", "sst ss cvr retail", "conversión retail", "retail cvr"],
+      "category": "conversion",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "% Restaurants Sessions With Optimal Assortment": {
+      "description": "Sesiones con mínimo 40 restaurantes / Total de sesiones",
+      "higher_is_better": true,
+      "aliases": ["optimal assortment", "assortment", "surtido óptimo", "surtido"],
+      "category": "supply",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "Non-Pro PTC > OP": {
+      "description": "Conversión de usuarios No Pro de Proceed to Checkout a Order Placed",
+      "higher_is_better": true,
+      "aliases": ["non pro ptc", "ptc op", "conversión no pro", "non pro conversion"],
+      "category": "conversion",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.02
+    },
+    "Turbo Adoption": {
+      "description": "Usuarios que compran en Turbo / Usuarios con tiendas Turbo disponible",
+      "higher_is_better": true,
+      "aliases": ["turbo", "turbo adoption", "adopción turbo"],
+      "category": "engagement",
+      "unit": "ratio",
+      "expected_range": [0, 1.0],
+      "anomaly_abs_min": 0.01
+    },
+    "Restaurants Markdowns / GMV": {
+      "description": "Descuentos totales en restaurantes / GMV Restaurantes",
+      "higher_is_better": false,
+      "aliases": ["markdowns", "markdown gmv", "descuentos", "markdowns gmv"],
+      "category": "financial",
+      "unit": "ratio",
+      "expected_range": [0, 0.5],
+      "anomaly_abs_min": 0.02
+    },
+    "Orders": {
+      "description": "Volumen total de órdenes en la zona",
+      "higher_is_better": true,
+      "aliases": ["orders", "órdenes", "ordenes", "pedidos", "volumen"],
+      "category": "volume",
+      "unit": "count",
+      "expected_range": [0, 10000000],
+      "anomaly_abs_min": 10
+    }
+  },
+  "zone_types": {
+    "Wealthy": ["wealthy", "rico", "alta renta", "high income"],
+    "Non Wealthy": ["non wealthy", "no rico", "baja renta", "low income"]
+  },
+  "zone_prioritization": {
+    "High Priority": ["high priority", "alta prioridad", "prioritario", "high"],
+    "Prioritized": ["prioritized", "priorizado", "medium priority"],
+    "Not Prioritized": ["not prioritized", "no priorizado", "low priority", "sin prioridad"]
+  },
+  "countries": {
+    "AR": ["argentina", "ar"],
+    "BR": ["brazil", "brasil", "br"],
+    "CL": ["chile", "cl"],
+    "CO": ["colombia", "co"],
+    "CR": ["costa rica", "cr"],
+    "EC": ["ecuador", "ec"],
+    "MX": ["mexico", "méxico", "mx"],
+    "PE": ["peru", "perú", "pe"],
+    "UY": ["uruguay", "uy"]
+  },
+  "data_notes": {
+    "lead_penetration_outliers": "26 zonas tienen Lead Penetration > 2 — son conteos de tiendas, no ratios. Se excluyen de benchmarking y correlaciones.",
+    "gp_ue_range": "GP UE va de -97 a +12.8. P25=-0.72, mediana=1.08. Valores negativos son operacionalmente válidos.",
+    "orders_nulls": "244 zonas sin L0W en órdenes, principalmente BR (196). Son zonas sin actividad reciente.",
+    "zones_only_orders": "226 zonas tienen órdenes pero no métricas operacionales — se reportan como data_quality."
+  }
+}
